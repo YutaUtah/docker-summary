@@ -1,0 +1,11 @@
+as you process docker, there are so many containers existed, and no need to process them anymore: you need remove them 
+
+remove:
+1) docker rm <container id>
+  if container status is 'up', you cannot remove the containers, if that is the case
+  
+2) docker stop <container id>
+  verify with docker ps -a
+  
+3) docker system prune
+  remove all the stopped containers 
