@@ -1,2 +1,11 @@
 docker run ubuntu
   this does not keep the container open. if you run this command, it exits automatically
+
+
+-it is an aggragate of -i and -t
+  
+-i STDIN connecting host to container
+-t makes the output format pretty
+
+as input channel is closed, if you run docker -t ubuntu bash, and run ls, it results in nothing. -t only makes the output pretty
+if you run docker -i, it seems that nothing has been returned but the program still works 
