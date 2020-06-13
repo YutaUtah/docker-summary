@@ -1,0 +1,12 @@
+docker login
+docker pull 
+docker run -it  dash
+exit
+docker ps -a
+docker images
+docker restart
+docker exec -it bash
+docker commit 
+docker tage
+docker push 
+docker rmi 
