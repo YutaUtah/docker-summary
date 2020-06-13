@@ -1,0 +1,4 @@
+docker run ubuntu 
+  this only creates container, executes program and exits
+   
+without -it, you cannot keep commands open
