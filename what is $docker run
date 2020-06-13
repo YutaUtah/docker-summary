@@ -1,0 +1,12 @@
+docker run consists of create + create
+
+---------------------
+docker run <image>
+  from the image create container -> go to docker ps -a, there is new container
+docker create <image>
+  just create container -> check the status from docker ps -a and it just says create
+
+docker start <container>
+  this bocomes 'up' and execute the default command and exit
+    docker start -a <container id>
+docker ps -a
