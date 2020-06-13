@@ -1,0 +1,25 @@
+if you create 2 dockers using run command, they are independent containers, and you are not allowed to intersect with these containers. i.e. not allowed to share the same files.
+
+
+3 situations you need to name the containers 
+- you need to use the containers that runs long time 
+- you use shared server
+- if you use container in different programs 
+
+
+
+when you want to specify container name:
+$docker run --name <name> <image>
+
+
+detached mode versus (short-term) foreground mode:
+
+detached move:
+$docker run -d <image>
+コンテナを起動後にdetachする（バックグラウンドで動かす
+status remains the same as up 
+
+(short-term) foreground mode
+$ docker run --rm <image>
+コンテナをexit後に削除する（一回きりのコンテナ）
+status moves to the exit and REMOVED
