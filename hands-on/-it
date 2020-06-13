@@ -1,1 +1,2 @@
-
+docker run ubuntu
+  this does not keep the container open. if you run this command, it exits automatically
