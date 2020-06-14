@@ -1,0 +1,41 @@
+FROM
+RUN
+CMD
+
+1) FROM 
+  comes at first 
+  base image: ubuntu:latest which comes from docker 
+  
+2) RUN
+  create extra layers of images by running RUN 
+  FROM ubuntu:latest
+  RUN touch test
+  RUN echo 'hello world' > test
+  
+  and if you run docker run -it <id> bash
+  
+  very important to minimize docker image layer number
+    in order to create layer: RUN COPY ADD
+ 
+    in order to install packages
+      FROM ubuntu:latest
+      RUN apt-get update && apt-get install xx xx xx
+      && is important to minimize the number of docker image layers. this will be the final format
+      
+    use cache:
+    FROM ubuntu:latest
+    RUN apt-get update 
+    RUN apt-get install -y \
+      curl \
+      nginx \
+    RUN apt-get install -y cvs 
+    if you install previous cache, it skips the proces with cache
+    
+    
+3) CMD
+  CMD: コンテナのデフォルトのコマンドに指定
+  CMD: CMD["executable","param1","param2"]
+  原則Dockerfileの最後に記述
+  
+RUN versus CMD
+  RUNはlayerを作る。CMDは layerを作らない
