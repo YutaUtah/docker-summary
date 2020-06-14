@@ -1,0 +1,32 @@
+docker file: docker imageの設計書 enables you to create your docker image out of it
+format always follows: INSTRUCTION arguments
+name: Dockerfile
+
+==================================================================================
+$cd ~/Desktop
+$mkdir docker 
+$cd docker
+$subl Docke rfile
+
+>> make Dockerfile in docker folder
+
+==================================================================================
+FROM ubuntu:latest
+RUN touch test
+#ubuntuのコンテナに対してtestを作る
+
+==================================================================================
+*******create docker image*********
+Dockerfile -> Docker image
+
+$cd ~/Desktop/docker
+$docker build <directory>
+$docker images
+$docker build -t <name> <directory> ex)docker build -t new-ubuntu:latest .
+
+check with $docker images. you realize that the dangling/unnamed image
+
+it is always good to build from Dockerfile
+==================================================================================
+
+==================================================================================
