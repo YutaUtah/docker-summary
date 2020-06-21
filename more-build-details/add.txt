@@ -1,1 +1,19 @@
+the way it works:
+docker(build context) -> docker image -> create container
+$docker build . 
+$docker run -it <image> bash
 
+dockerfile
+  FROM ubuntu:latest
+  RUN mkdir/new_dir (new_dir直下におく)
+  ADD compressed.tar (ADD <src><dest>)
+
+
+$cd~/Desktop/docker
+$touch sample_folder
+$cd sample_folder
+$echo 'hello' > hello
+$tar -cvf compressed.tar sample_folder
+$docker build . 
+$docker run -it --rm <image> bash
+$cat /sample_folder/hello
