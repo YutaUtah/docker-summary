@@ -1,0 +1,22 @@
+entrypointはrunの時に上書きできない
+
+CMD["executable","param1","param2"]
+
+when CMD only dockerfile contents:
+  FROM ubuntu:latest
+  RUN touch test
+  CMD["ls", "--help"]
+ 
+$docker run <image> pwdを実行したらpwdはCMDを上書きするため、実行可能なcommandとなる
+
+when combination of CMD and ENTRYPOINT contents:
+  FROM ubuntu:latest
+  RUN touch test
+  ENTRYPOINT["ls"]
+  CMD["--help"]
+  
+$docker run <image> pwdはあくまでCMDを上書きするため（ENTRYPOINTは上書きされない）、エラーが発生する
+そのため、
+$docker run <image> -laにてCMDのオプション部分を上書きする必要がある
+
+##### we do not frequently use ENTRYPOINT
