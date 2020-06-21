@@ -1,0 +1,14 @@
+DockerfileのRUNでFileを作る時、WORKDIRでpathを指定しなければrootにfileが作られる
+
+
+FROM ubuntu:latest
+  RUN mkdir sample_foler && \
+  cd sample_folder && \
+  touch sample_file
+
+is equivalent to:
+
+FROM ubuntu:latest
+RUN mkdir sample_folder
+WORKDIR /sample_folder #WORKDIR <絶対path>
+RUN touch sample_file
