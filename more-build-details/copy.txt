@@ -1,1 +1,16 @@
-a
+the way it works:
+docker(build context) -> docker image -> create container
+$docker build . 
+$docker run -it <image> bash
+
+dockerfile
+  FROM ubuntu:latest
+  RUN mkdir/new_dir (new_dir直下におく)
+  COPY something/new_dir/ (COPY <src><new_dir>)
+
+
+$cd~/Desktop/docker
+$touch something
+$docker build . 
+$docker run -it <image> bash
+$ls /new_dir
