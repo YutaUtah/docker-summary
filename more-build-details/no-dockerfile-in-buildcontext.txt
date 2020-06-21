@@ -1,0 +1,7 @@
+指定するsample_folderにいるが、dockerfileは親ディレクトリにあるため、-f commandで親ディレクトリにあるdockerfileを指定する
+$docker build -f <dockerfilename><build context>
+
+#move dockerfile in docker directory as Dockerfile.dev
+mv ../Dockerfile ../Dockerfile.dev
+ex) docker build -f ../Dockerfile.dev .
+
