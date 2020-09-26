@@ -1,0 +1,14 @@
+- mount
+typically host has your created files, but container does not. container is a space with container image that enables us to launch the environement from the image
+container replicate the files you create but since the storage would be too big, we just execute non-existed files from host
+
+$cd ~/Desktop
+$mkdir mounted_folder
+$touch mounted_folder/file_at_host
+$docker built .
+$docker run -it -v ~/Desktop/mounted_folder:/new_dir <image> bash (docker run -it -v /Users/yutahayashi/udemy/subl_projects/mounted_folder:/new_dir  99ffc963370a bash)
+created new_dir in container. file_at_host replicated in new_dir
+$ls /new_dir
+
+dockerfile lets you create new_dir in container 
+if host /mounted_filder/file_at_host is modified, its reflected on new_dir/file_at_host on the container as well
