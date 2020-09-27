@@ -63,3 +63,5 @@ $docker run -p 8888:8888 6fc69bd6fa35
 
 and launch jupyterlab by localhost:8888
 
+to create a folder work in jupyterlab
+docker run -p 8888:8888 -v /Users/yutahayashi/udemy/subl_projects/ds_python/:/work --name my-lab 6fc69bd6fa35
