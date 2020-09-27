@@ -1,0 +1,65 @@
+subl_project/dsenv_build/Dockerfile
+
+*****
+FROM ubuntu:latest
+RUN apt-get update && apt-get install && -y \
+  sudo \
+  wget \
+  vim
+WORKDIR /opt 
+RUN wget https://repo.continuum.io/archive/Anaconda3-2019.10-Linux-x86_64.sh
+*****
+
+$docker build .
+$docker run -it 5b70c390c366 bash 
+>
+>
+>
+>
+>
+>
+[/root/anaconda3] >>> /opt/anaconda3
+
+in this circumstance, you are not able to use the command $python as path is not set, so
+
+to check the path
+$echo PATH
+root@3ac3e92b6e02:/# /opt/anaconda3/bin/python 
+
+
+to create the path
+$export PATH=/opt/anaconda3/bin:$PATH
+(no space between equal sign)
+
+finally, 
+$/opt
+$python
+it works!
+
+
+
+but write this in Dockerfile in the dockerfile and this is an interactive mode
+
+*****
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y \
+  sudo \
+  wget \
+  vim
+WORKDIR /opt 
+RUN wget https://repo.continuum.io/archive/Anaconda3-2019.10-Linux-x86_64.sh && \
+  sh Anaconda3-2019.10-Linux-x86_64.sh -b -p /opt/anaconda3 && \
+  rm -f Anaconda3-2019.10-Linux-x86_64.sh
+
+ENV PATH /opt/anaconda3/bin:$PATH
+
+RUN pip install --upgrade pip
+WORKDIR /
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--LabApp.token=''"]
+  
+*****
+
+$docker run -p 8888:8888 6fc69bd6fa35
+
+and launch jupyterlab by localhost:8888
+
