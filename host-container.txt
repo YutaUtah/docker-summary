@@ -1,3 +1,5 @@
+***** -v ******
+
 - mount
 typically host has your created files, but container does not. container is a space with container image that enables us to launch the environement from the image
 container replicate the files you create but since the storage would be too big, we just execute non-existed files from host
@@ -12,3 +14,53 @@ $ls /new_dir
 
 dockerfile lets you create new_dir in container 
 if host /mounted_filder/file_at_host is modified, its reflected on new_dir/file_at_host on the container as well
+
+
+
+
+
+
+
+***** -u ******
+
+$id -u 
+is to check our MAC id 
+
+$id -g
+is to check our MAC group id 
+
+procedure:
+$cd docker: to go to docker folder
+$docker build . 
+
+$docker run -it -u $(id -u):$(id -g) -v /Users/yutahayashi/udemy/subl_projects/mounted_folder:/created_in_run 99ffc963370a bash
+"-u" is to specify user information at $(id -u):$(id -g) i.e. 501:20
+
+Dockerfile:
+FROM ubuntu:latest
+RUN mkdir created_in_file これはRoot権限
+
+$ls -la 
+to check access privilege
+
+
+
+
+
+
+
+***** -p ******
+$docker run -it -p 8888:8888 --rm jupyter/datascience-notebook bash 
+$ jupyter notebook
+
+finally, go to localhost:8888 from the browser
+
+
+
+
+
+
+
+***** CPU check ******
+$sysctl -n hw.physicalcpu_max
+
