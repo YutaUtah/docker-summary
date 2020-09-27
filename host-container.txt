@@ -64,3 +64,14 @@ finally, go to localhost:8888 from the browser
 ***** CPU check ******
 $sysctl -n hw.physicalcpu_max
 
+
+
+
+
+
+***** summary ******
+ファイルシステムの共有     -v <host/path>:<host/path>
+ファイルへのアクセス権限    -u $(id -u):$(id -g)
+ポートをつなげる           -p <host_port>:<container_port>
+コンピューターリソースの上限  -cpus <#ofCPUs> --memory <byte>
+コンテナの詳細を表示       $docker inspect <container> | grep -i <something>
