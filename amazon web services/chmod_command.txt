@@ -1,0 +1,10 @@
+$chmod 400 <pemfile>
+
+4: read
+2: write
+1: execute
+0: no permission 
+
+go to subl_project, make sure we have pem file under the directory
+$chmod 400 <pemfile>
+$ssh -i <pemfile> ubuntu@<パブリック IPv4 DNS>
