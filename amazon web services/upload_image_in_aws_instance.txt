@@ -17,3 +17,22 @@ use SFTP
 under subl_projects
 
 sftp -i yuta_docker ubuntu@ec2-18-219-225-181.us-east-2.compute.amazonaws.com
+sftp> put temp_folder/myimage.tar /home/ubuntu
+
+open a new tab and check if myimage.tar exists
+  ssh command and check $ls
+  
+$get <filename>
+on sftp> get something
+and exit to check if you have a file on local
+
+sftpで送ったfileをImageに変える方法
+ssh -i でserver login
+＄docker load < myimage.tar
+$docker run -it cb5202ce1785 sh
+
+Docker image → tar file
+  $docker save {image} > {tar_file}
+  
+tar file → Docker image  
+  $docker load < {tar_file}
