@@ -1,0 +1,19 @@
+Imageの送り方
+1. docker レジストリを使う
+2. Dockerfileを送る
+3. Docker imageを.tarにして送る
+
+3.　について
+create temp_folder under subl_projects
+create Dockerfile under temp_folder
+FROM alpine
+RUN touch test
+
+$docker build .
+under temp_folder
+$docker save cb5202ce1785 > myimage.tar
+
+use SFTP
+under subl_projects
+
+sftp -i yuta_docker ubuntu@ec2-18-219-225-181.us-east-2.compute.amazonaws.com
