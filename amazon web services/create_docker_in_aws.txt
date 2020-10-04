@@ -1,0 +1,6 @@
+$sudo apt-get update
+$sudo apt-get install docker.io
+dockerをawsに移してコンテナを建てる
+
+everytime you execute the command, you need to put sudo at first, which is troublesome, so..
+$sudo gpasswd -a ubuntu docker
