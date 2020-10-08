@@ -1,0 +1,16 @@
+Send Dockerfile in AWS
+
+$sftp -i yuta_docker.pem ubuntu@ec2-52-14-7-15.us-east-2.compute.amazonaws.com
+sftp > exit
+$put dsenv_build/Dockerfile
+$ssh -i yuta_docker.pem ubuntu@ec2-52-14-7-15.us-east-2.compute.amazonaws.com
+
+check if Dockerfile exists in the server
+
+$mkdir ds_env
+$mv Dockerfile dsenv_build/
+$cd dsenv_build/
+ubuntu@ip-172-31-39-79:~/dsenv_build$ docker build .
+ubuntu@ip-172-31-39-79:~/dsenv_build$ docker run -v ~:/work -p 8888:8888 <image id>(mount in the home directory)
+
+and the put the url: ec2-52-14-7-15.us-east-2.compute.amazonaws.com:8888 with the port id
